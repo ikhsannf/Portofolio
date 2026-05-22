@@ -243,7 +243,7 @@ export default function About() {
 
                   {/* View CV Button */}
                   <motion.a
-                    href="/cv/CV_Muh_Ikhsan_Fahmi.pdf"
+                    href="/cv/CV ATS_MUH. IKHSAN FAHMI.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 shadow-lg flex items-center justify-center space-x-2 relative overflow-hidden group w-full"
