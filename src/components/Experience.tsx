@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { GraduationCap, Landmark, Megaphone, Camera, Trophy, LucideIcon } from 'lucide-react'
 
 interface TimelineItem {
     id: number
@@ -9,7 +10,7 @@ interface TimelineItem {
     organization: string
     description: string
     type: 'education' | 'organization' | 'achievement'
-    icon: string
+    icon: LucideIcon
     certificateUrl?: string
 }
 
@@ -22,7 +23,7 @@ export default function Experience() {
             organization: "Telkom University",
             description: "Menempuh pendidikan S1 di jurusan Teknologi Informasi dengan fokus pada pengembangan perangkat lunak dan desain UI/UX.",
             type: "education",
-            icon: "🎓"
+            icon: GraduationCap
         },
         {
             id: 2,
@@ -31,7 +32,7 @@ export default function Experience() {
             organization: "Himpunan Mahasiswa Information Technology (HMIT)",
             description: "Aktif sebagai Staff Muda di Divisi Minat dan Bakat HMIT, membantu merancang dan mengelola program pengembangan bakat mahasiswa di lingkungan jurusan.",
             type: "organization",
-            icon: "🏛️"
+            icon: Landmark
         },
         {
             id: 3,
@@ -40,7 +41,7 @@ export default function Experience() {
             organization: "Himpunan Mahasiswa Information Technology (HMIT)",
             description: "Dipercaya sebagai Staff Ahli di Divisi Komunikasi dan Informasi HMIT, bertanggung jawab dalam pengelolaan komunikasi, publikasi, dan penyebaran informasi himpunan.",
             type: "organization",
-            icon: "📡"
+            icon: Megaphone
         },
         {
             id: 4,
@@ -49,7 +50,7 @@ export default function Experience() {
             organization: "Himpunan Mahasiswa Information Technology (HMIT)",
             description: "Berperan sebagai bagian dari Public Documentation & Design Team (PDDT) dalam kegiatan orientasi jurusan yang diselenggarakan oleh HMIT, bertanggung jawab atas dokumentasi dan desain visual acara.",
             type: "organization",
-            icon: "📸"
+            icon: Camera
         },
         {
             id: 5,
@@ -58,7 +59,7 @@ export default function Experience() {
             organization: "Adaptive Network Lab",
             description: "Berhasil menyelesaikan program NetDevelopment 2025 yang diselenggarakan oleh Adaptive Network Lab, memperdalam pemahaman tentang pengembangan jaringan dan teknologi terkait.",
             type: "achievement",
-            icon: "🏆",
+            icon: Trophy,
             certificateUrl: "/certificate/MUH. IKHSAN FAHMI.pdf"
         },
     ]
@@ -123,8 +124,8 @@ export default function Experience() {
                             <div className="bg-white dark:bg-gray-800 p-5 sm:p-6 rounded-xl sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                                 {/* Top: Icon + Badge */}
                                 <div className="flex items-center justify-between mb-4">
-                                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${getTypeColor(item.type)} flex items-center justify-center text-xl sm:text-2xl shadow-md group-hover:scale-110 transition-transform duration-200`}>
-                                        {item.icon}
+                                    <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${getTypeColor(item.type)} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-200`}>
+                                        <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                                     </div>
                                     <span className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium ${getTypeBadge(item.type).color}`}>
                                         {getTypeBadge(item.type).label}

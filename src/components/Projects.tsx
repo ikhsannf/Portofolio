@@ -2,6 +2,18 @@
 
 import { motion } from 'framer-motion'
 import { useState } from 'react'
+import { 
+    Puzzle, 
+    Film, 
+    ClipboardList, 
+    Code2, 
+    Shirt, 
+    Target, 
+    LayoutGrid, 
+    Laptop,
+    Wallet,
+    LucideIcon 
+} from 'lucide-react'
 
 interface Project {
     id: number
@@ -13,7 +25,7 @@ interface Project {
     githubUrl?: string
     proposalUrl?: string
     status: 'live' | 'ongoing' | 'development'
-    icon: string
+    icon: LucideIcon
     gradient: string
 }
 
@@ -23,64 +35,75 @@ export default function Projects() {
     const projects: Project[] = [
         {
             id: 1,
+            title: "SisaDuit",
+            description: "Aplikasi pelacak keuangan pribadi (personal finance tracker) berbasis AI yang membantu pencatatan & analisis transaksi secara otomatis menggunakan AI Consultant berbasis LLM.",
+            category: "web",
+            type: "Fullstack Web Application",
+            liveUrl: "https://sisaduit.my.id",
+            status: "live",
+            icon: Wallet,
+            gradient: "from-emerald-500 to-teal-600"
+        },
+        {
+            id: 2,
             title: "Dyslexi-Read",
             description: "Proyek PKM (Program Kreativitas Mahasiswa) berupa ekstensi browser yang dirancang untuk membantu penyandang disleksia. Ekstensi ini menyesuaikan tampilan teks di website agar lebih mudah dibaca, dengan fitur font khusus, pengaturan spasi, dan kontras warna.",
             category: "extension",
             type: "Browser Extension",
             proposalUrl: "/proposals/Proposal-Dyslexi-Read.pdf",
             status: "development",
-            icon: "🧩",
+            icon: Puzzle,
             gradient: "from-indigo-500 to-purple-600"
         },
         {
-            id: 2,
+            id: 3,
             title: "movInfo",
             description: "Website informasi film yang menampilkan rating, ulasan, dan berita terkini seputar dunia perfilman. Pengguna dapat mencari film, melihat detail, dan mendapatkan update berita film terbaru.",
             category: "web",
             type: "Web Application",
             status: "development",
-            icon: "🎬",
+            icon: Film,
             gradient: "from-red-500 to-orange-500"
         },
         {
-            id: 3,
+            id: 4,
             title: "TaskFlow",
             description: "Aplikasi web manajemen tugas (to-do list) yang memudahkan pengguna dalam mengorganisir, memprioritaskan, dan melacak pekerjaan sehari-hari dengan antarmuka yang bersih dan intuitif.",
             category: "web",
             type: "Web Application",
             status: "development",
-            icon: "✅",
+            icon: ClipboardList,
             gradient: "from-green-500 to-teal-500"
         },
         {
-            id: 4,
+            id: 5,
             title: "Snippex",
             description: "Platform kompilasi template kode yang memungkinkan developer menyimpan, mengorganisir, dan berbagi snippet kode. Membantu mempercepat workflow pengembangan dengan koleksi template siap pakai.",
             category: "web",
             type: "Web Application",
             status: "development",
-            icon: "💾",
+            icon: Code2,
             gradient: "from-slate-600 to-slate-800"
         },
         {
-            id: 5,
+            id: 6,
             title: "KIAR",
             description: "Website fashion yang menampilkan koleksi pakaian dengan desain modern dan elegan. Dilengkapi dengan katalog produk, tampilan yang menarik, dan pengalaman belanja yang menyenangkan.",
             category: "web",
             type: "Web Application",
             liveUrl: "https://dikiar.vercel.app/",
             status: "live",
-            icon: "👗",
+            icon: Shirt,
             gradient: "from-pink-500 to-rose-500"
         },
         {
-            id: 6,
+            id: 7,
             title: "RentStuff",
             description: "Aplikasi penyewaan perlengkapan hobi yang memungkinkan pengguna untuk menyewa berbagai peralatan hobi dengan mudah. Proyek tugas kuliah yang masih dalam pengembangan aktif bersama tim.",
             category: "web",
             type: "Application",
             status: "ongoing",
-            icon: "🎯",
+            icon: Target,
             gradient: "from-blue-500 to-cyan-500"
         }
     ]
@@ -90,9 +113,9 @@ export default function Projects() {
         : projects.filter(p => p.category === activeFilter)
 
     const filters = [
-        { id: 'all', label: 'Semua Proyek', icon: '🗂️' },
-        { id: 'web', label: 'Web Apps', icon: '💻' },
-        { id: 'extension', label: 'Ekstensi', icon: '🧩' },
+        { id: 'all', label: 'Semua Proyek', icon: LayoutGrid },
+        { id: 'web', label: 'Web Apps', icon: Laptop },
+        { id: 'extension', label: 'Ekstensi', icon: Puzzle },
     ]
 
     const getStatusBadge = (status: string) => {
@@ -137,14 +160,14 @@ export default function Projects() {
                         <motion.button
                             key={filter.id}
                             onClick={() => setActiveFilter(filter.id as 'all' | 'web' | 'extension')}
-                            className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm transition-all duration-150 ${activeFilter === filter.id
+                            className={`flex items-center gap-1.5 px-4 sm:px-6 py-2 sm:py-2.5 rounded-lg font-medium text-xs sm:text-sm transition-all duration-150 ${activeFilter === filter.id
                                 ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                                 }`}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            <span className="mr-1.5">{filter.icon}</span>
+                            <filter.icon className="w-4 h-4" />
                             {filter.label}
                         </motion.button>
                     ))}
@@ -165,12 +188,12 @@ export default function Projects() {
                             <div className="bg-white dark:bg-gray-900 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-100 dark:border-gray-700 h-full flex flex-col">
                                 {/* Project Header */}
                                 <div className={`relative h-36 sm:h-44 bg-gradient-to-br ${project.gradient} overflow-hidden flex items-center justify-center`}>
-                                    <span className="text-5xl sm:text-6xl opacity-80 group-hover:scale-110 transition-transform duration-200">
-                                        {project.icon}
-                                    </span>
+                                    <div className="text-white opacity-80 group-hover:scale-110 transition-transform duration-200">
+                                        <project.icon className="w-12 h-12 sm:w-14 sm:h-14" />
+                                    </div>
 
                                     {/* Status badge top-right */}
-                                    <div className={`absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold ${getStatusBadge(project.status).color}`}>
+                                    <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-semibold bg-black/30 text-white backdrop-blur-sm">
                                         {getStatusBadge(project.status).label}
                                     </div>
 
