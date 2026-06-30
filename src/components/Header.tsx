@@ -1,12 +1,21 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import ThemeToggle from './ThemeToggle'
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState('#home')
   const [isScrolled, setIsScrolled] = useState(false)
+  const isClickScrolling = useRef(false)
+  const scrollTimeout = useRef<NodeJS.Timeout | null>(null)
+
+  // Clean up timeouts on unmount
+  useEffect(() => {
+    return () => {
+      if (scrollTimeout.current) clearTimeout(scrollTimeout.current)
+    }
+  }, [])
 
   // Handle scroll effect
   useEffect(() => {
@@ -22,6 +31,9 @@ export default function Header() {
     const sections = ['#home', '#about', '#projects', '#experience', '#skills', '#contact']
 
     const handleScroll = () => {
+      // Ignore scroll spy updates during click navigation to prevent navbar stuttering
+      if (isClickScrolling.current) return
+
       let currentSection = '#home'
       const scrollPosition = window.scrollY
       const triggerLine = scrollPosition + window.innerHeight / 3 // ~33% of viewport height from top
@@ -105,11 +117,22 @@ export default function Header() {
 
   const handleNavClick = (section: string, e: React.MouseEvent) => {
     e.preventDefault()
+    
+    // Clear any existing scroll timeout
+    if (scrollTimeout.current) clearTimeout(scrollTimeout.current)
+    
+    isClickScrolling.current = true
     setActiveSection(section)
+    
     const element = document.querySelector(section)
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
+
+    // Reset the click scrolling flag after the smooth scroll finishes (~800ms fallback)
+    scrollTimeout.current = setTimeout(() => {
+      isClickScrolling.current = false
+    }, 800)
   }
 
   return (
