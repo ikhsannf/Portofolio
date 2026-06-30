@@ -85,10 +85,10 @@ export default function About() {
             viewport={{ once: true }}
             className="text-center mb-10 sm:mb-12 lg:mb-16"
           >
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
               Tentang Saya
             </h1>
-            <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Bersemangat dalam menciptakan solusi inovatif melalui teknologi
             </p>
           </motion.div>
@@ -167,10 +167,10 @@ export default function About() {
                   viewport={{ once: true, amount: 0.3 }}
                   className="mb-4 sm:mb-5"
                 >
-                  <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3">
                     Halo Semua!
                   </h2>
-                  <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
                     Saya adalah mahasiswa Teknologi Informasi di Telkom University yang memiliki passion dalam Graphic Design, dan UI/UX Design. Saya senang mempelajari hal-hal baru seperti saat ini, saya tertarik memahami Frontend Development dan selalu berusaha untuk mengembangkan kemampuan saya dalam bidang desain, khususnya dalam Graphic Design dan UI/UX design.
                   </p>
                 </motion.div>
@@ -181,7 +181,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.5 }}
                   viewport={{ once: true, amount: 0.3 }}
-                  className="grid grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-5"
+                  className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-5"
                 >
                   {infoCards.map((card, index) => (
                     <motion.div
@@ -200,10 +200,10 @@ export default function About() {
                           </div>
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h3 className="font-medium text-gray-500 dark:text-gray-400 text-[10px] sm:text-xs mb-0.5">
+                          <h3 className="font-medium text-gray-500 dark:text-gray-400 text-xs sm:text-sm mb-0.5">
                             {card.title}
                           </h3>
-                          <p className="text-gray-900 dark:text-white text-[10px] sm:text-xs font-semibold leading-tight truncate">
+                          <p className="text-gray-900 dark:text-white text-sm sm:text-base font-semibold leading-tight break-words">
                             {card.content}
                           </p>
                         </div>
@@ -231,7 +231,7 @@ export default function About() {
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.1 * index + 0.6 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-100"
+                        className="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors duration-100"
                       >
                         {interest}
                       </motion.span>
@@ -246,7 +246,7 @@ export default function About() {
                     href="/cv/CV ATS_MUH. IKHSAN FAHMI.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 shadow-lg flex items-center justify-center space-x-2 relative overflow-hidden group w-full"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg font-semibold text-sm sm:text-base transition-all duration-200 shadow-lg flex items-center justify-center space-x-2 relative overflow-hidden group w-full"
                     whileHover={{ scale: 1.02, boxShadow: "0 10px 25px rgba(37, 99, 235, 0.4)" }}
                     whileTap={{ scale: 0.95 }}
                   >

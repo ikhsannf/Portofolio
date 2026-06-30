@@ -38,7 +38,7 @@ export default function Hero() {
   }, [text, isDeleting, loopNum, typingSpeed, texts])
 
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-slate-800 flex items-center justify-center px-4 sm:px-6 pt-20 sm:pt-24 pb-20 sm:pb-10 overflow-hidden">
+    <section id="home" className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-slate-800 flex items-center justify-center px-4 sm:px-6 pt-28 sm:pt-32 lg:pt-24 pb-20 sm:pb-10 overflow-hidden">
       <div className="container mx-auto max-w-6xl">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 sm:gap-8 lg:gap-12">
 
@@ -50,14 +50,14 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
             >
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 mb-1 sm:mb-2 font-medium">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-1 sm:mb-2 font-medium">
                 Hi, I'm
               </p>
             </motion.div>
 
             {/* Name */}
             <motion.h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3"
               initial={{ opacity: 0, x: -60 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -71,7 +71,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
             >
-              <h2 className="text-xl sm:text-2xl md:text-2xl text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 font-light h-7 sm:h-9">
+              <h2 className="text-2xl sm:text-3xl text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 font-light h-8 sm:h-10">
                 <span className="text-blue-600 dark:text-blue-400 font-semibold">
                   {text}
                 </span>
@@ -85,7 +85,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
             >
-              <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-400 mb-4 sm:mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-400 mb-4 sm:mb-5 leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Mengeksplorasi integrasi Artificial Intelligence dan merealisasikan ide secara cepat menggunakan AntiGravity IDE untuk menciptakan produk digital yang fungsional dan intuitif.
               </p>
             </motion.div>
@@ -95,18 +95,18 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.0, ease: "easeOut" }}
-              className="flex flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-5 justify-center lg:justify-start"
+              className="flex flex-wrap gap-2 sm:gap-3 mb-5 sm:mb-6 justify-center lg:justify-start"
             >
               <div className="flex items-center space-x-2 bg-white dark:bg-gray-800 px-3 sm:px-4 py-2 rounded-full shadow-md">
                 <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">Bandung, Indonesia</span>
+                <span className="text-base text-gray-700 dark:text-gray-300 font-medium">Bandung, Indonesia</span>
               </div>
               <div className="flex items-center space-x-2 bg-green-100 dark:bg-green-900/30 px-3 sm:px-4 py-2 rounded-full">
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm sm:text-base text-green-700 dark:text-green-400 font-medium">Available for work</span>
+                <span className="text-base text-green-700 dark:text-green-400 font-medium">Available for work</span>
               </div>
             </motion.div>
 
@@ -124,12 +124,12 @@ export default function Hero() {
                     projectsSection.scrollIntoView({ behavior: 'smooth' })
                   }
                 }}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition-all duration-150 shadow-lg relative overflow-hidden group"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-sm sm:text-base transition-all duration-150 shadow-lg relative overflow-hidden group flex items-center justify-center"
                 whileHover={{ scale: 1.05, boxShadow: "0 10px 25px rgba(37, 99, 235, 0.4)" }}
                 whileTap={{ scale: 0.95 }}
               >
                 <span className="relative z-10 flex items-center justify-center">
-                  View Projects
+                  Lihat Proyek
                   <motion.span
                     className="ml-2"
                     animate={{ x: [0, 5, 0] }}
@@ -143,6 +143,27 @@ export default function Hero() {
                   initial={false}
                 />
               </motion.button>
+              
+              <motion.a
+                href="/cv/CV ATS_MUH. IKHSAN FAHMI.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-sm sm:text-base transition duration-200 relative overflow-hidden group flex items-center justify-center gap-1.5"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <span className="relative z-10 flex items-center gap-1.5">
+                  Lihat CV Saya
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </span>
+                <motion.div
+                  className="absolute inset-0 bg-gray-100 dark:bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                  initial={false}
+                />
+              </motion.a>
+
               <motion.button
                 onClick={() => {
                   const contactSection = document.querySelector('#contact')
@@ -150,15 +171,11 @@ export default function Hero() {
                     contactSection.scrollIntoView({ behavior: 'smooth' })
                   }
                 }}
-                className="border-2 border-gray-300 dark:border-gray-600 hover:border-blue-500 dark:hover:border-blue-400 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-sm sm:text-base lg:text-lg transition duration-200 relative overflow-hidden group"
+                className="border-2 border-transparent hover:border-gray-300 dark:hover:border-gray-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg font-semibold text-sm sm:text-base transition duration-200 relative overflow-hidden group flex items-center justify-center"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="relative z-10">Let's Work Together</span>
-                <motion.div
-                  className="absolute inset-0 bg-gray-100 dark:bg-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                  initial={false}
-                />
+                <span className="relative z-10">Hubungi Saya</span>
               </motion.button>
             </motion.div>
 

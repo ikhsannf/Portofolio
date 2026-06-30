@@ -20,8 +20,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth ${poppins.variable}`}>
-      <body className={inter.className}>
+    <html lang="en" className={`scroll-smooth max-w-full overflow-x-hidden ${poppins.variable}`}>
+      <body className={`${inter.className} max-w-full overflow-x-hidden`}>
         {children}
       </body>
     </html>

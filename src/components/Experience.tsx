@@ -101,10 +101,10 @@ export default function Experience() {
                     viewport={{ once: true }}
                     className="text-center mb-12 sm:mb-16"
                 >
-                    <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
+                    <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
                         Pengalaman & Pendidikan
                     </h2>
-                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                         Perjalanan saya melalui pendidikan, organisasi, dan pencapaian
                     </p>
                 </motion.div>
@@ -127,26 +127,26 @@ export default function Experience() {
                                     <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-gradient-to-br ${getTypeColor(item.type)} flex items-center justify-center text-white shadow-md group-hover:scale-110 transition-transform duration-200`}>
                                         <item.icon className="w-5 h-5 sm:w-6 sm:h-6" />
                                     </div>
-                                    <span className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium ${getTypeBadge(item.type).color}`}>
+                                    <span className={`px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${getTypeBadge(item.type).color}`}>
                                         {getTypeBadge(item.type).label}
                                     </span>
                                 </div>
 
                                 {/* Year */}
-                                <span className="text-xs sm:text-sm font-bold text-blue-600 dark:text-blue-400 mb-2">
+                                <span className="text-sm sm:text-base font-bold text-blue-600 dark:text-blue-400 mb-2">
                                     {item.year}
                                 </span>
 
                                 {/* Title & Organization */}
-                                <h3 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-150">
+                                <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-150">
                                     {item.title}
                                 </h3>
-                                <p className="text-xs sm:text-sm font-medium text-gray-500 dark:text-gray-400 mb-3">
+                                <p className="text-sm sm:text-base font-medium text-gray-500 dark:text-gray-400 mb-3">
                                     {item.organization}
                                 </p>
 
                                 {/* Description */}
-                                <p className="text-gray-600 dark:text-gray-300 text-xs sm:text-sm leading-relaxed flex-1">
+                                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed flex-1">
                                     {item.description}
                                 </p>
 
@@ -156,7 +156,7 @@ export default function Experience() {
                                         href={item.certificateUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="mt-4 inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-150"
+                                        className="mt-4 inline-flex items-center gap-1.5 text-sm sm:text-base font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-150"
                                     >
                                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

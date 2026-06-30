@@ -29,32 +29,15 @@ export default function Home() {
     },
     {
       name: "Canva",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-          <circle cx="12" cy="12" r="12" fill="#7D2AE7"/>
-          <circle cx="12" cy="12" r="4.5" fill="none" stroke="#00C4CC" strokeWidth="2.5"/>
-          <circle cx="12" cy="12" r="1.5" fill="#00C4CC"/>
-        </svg>
-      )
+      icon: <img src="/assets/canva-icon.svg" alt="Canva" className="w-5 h-5 sm:w-6 sm:h-6" />
     },
     {
       name: "CapCut",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="5" className="fill-gray-800 dark:fill-white"/>
-          <path d="M9.5 7v10l7-5-7-5z" className="fill-white dark:fill-gray-800"/>
-        </svg>
-      )
+      icon: <img src="/assets/capcut.svg" alt="CapCut" className="w-5 h-5 sm:w-6 sm:h-6 animate-pulse" />
     },
     {
       name: "Antigravity IDE",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-          <path d="M12 2L2 7l10 5 10-5-10-5z" fill="#4285F4"/>
-          <path d="M2 17l10 5 10-5" stroke="#34A853" strokeWidth="2" strokeLinecap="round"/>
-          <path d="M2 12l10 5 10-5" stroke="#FBBC04" strokeWidth="2" strokeLinecap="round"/>
-        </svg>
-      )
+      icon: <img src="/assets/antigravity-color.svg" alt="Antigravity IDE" className="w-5 h-5 sm:w-6 sm:h-6" />
     },
     // Tech Stack
     {
@@ -70,12 +53,7 @@ export default function Home() {
     },
     {
       name: "TypeScript",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-          <rect width="24" height="24" rx="3" fill="#3178C6"/>
-          <path d="M5.5 12h5v1.5H8.75V19h-1.5v-5.5H5.5V12zm6 0h6.4c.9 0 1.6.7 1.6 1.6 0 .7-.4 1.2-1 1.5l1.3 3.9h-1.7l-1.1-3.5h-2v3.5h-1.5V12h-2zm3.5 1.5v1.5h2c.3 0 .5-.3.5-.7 0-.5-.2-.8-.5-.8h-2z" fill="white"/>
-        </svg>
-      )
+      icon: <img src="/assets/typescript-icon-svgrepo-com.svg" alt="TypeScript" className="w-5 h-5 sm:w-6 sm:h-6" />
     },
     {
       name: "Tailwind CSS",
@@ -86,14 +64,12 @@ export default function Home() {
       )
     },
     {
-      name: "HTML & CSS",
-      icon: (
-        <svg className="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 24 24" fill="none">
-          <path d="M3 2l1.578 17.824L12 22l7.422-2.176L21 2H3z" fill="#E44D26"/>
-          <path d="M12 4v16.288l5.962-1.747L19.17 4H12z" fill="#F16529"/>
-          <path d="M8.5 9.5H16l-.2 2.5H8.7l.2 2.5h6.6l-.3 3.5L12 19l-3-1-.2-2.5h2.5l.1 1.2 .6.2.6-.2.15-1.7H8.1L7.7 9.5z" fill="white"/>
-        </svg>
-      )
+      name: "HTML",
+      icon: <img src="/assets/html-5-svgrepo-com.svg" alt="HTML" className="w-5 h-5 sm:w-6 sm:h-6" />
+    },
+    {
+      name: "CSS",
+      icon: <img src="/assets/css-3-svgrepo-com.svg" alt="CSS" className="w-5 h-5 sm:w-6 sm:h-6" />
     },
     {
       name: "JavaScript",
@@ -124,7 +100,7 @@ export default function Home() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 overflow-x-hidden w-full relative">
       <Header />
       <Hero />
 

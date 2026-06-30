@@ -121,7 +121,7 @@ export default function Contact() {
                     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">
                         Hubungi Saya
                     </h2>
-                    <p className="text-sm sm:text-base lg:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
+                    <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto px-4">
                         Siap mewujudkan ide Anda? Mari diskusikan proyek Anda selanjutnya dan buat sesuatu yang luar biasa bersama
                     </p>
                 </motion.div>
@@ -141,7 +141,7 @@ export default function Contact() {
                                 Terhubung dengan Saya
                             </h3>
                         </div>
-                        <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
+                        <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-6 sm:mb-8">
                             Jangan ragu untuk menghubungi melalui salah satu platform sosial saya. Saya selalu terbuka untuk koneksi dan peluang baru.
                         </p>
 
@@ -227,7 +227,7 @@ export default function Contact() {
                             <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                                 <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                                     <div>
-                                        <label htmlFor="name" className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
+                                        <label htmlFor="name" className="block text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
                                             Nama <span className="text-red-500">*</span>
                                         </label>
                                         <input
@@ -237,12 +237,12 @@ export default function Contact() {
                                             disabled={isSubmitting}
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="Nama lengkap Anda"
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
+                                        <label htmlFor="email" className="block text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
                                             Email <span className="text-red-500">*</span>
                                         </label>
                                         <input
@@ -252,14 +252,14 @@ export default function Contact() {
                                             disabled={isSubmitting}
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                            className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                                             placeholder="your@email.com"
                                         />
                                     </div>
                                 </div>
 
                                 <div>
-                                    <label htmlFor="subject" className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
+                                    <label htmlFor="subject" className="block text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
                                         Subjek
                                     </label>
                                     <input
@@ -268,13 +268,13 @@ export default function Contact() {
                                         disabled={isSubmitting}
                                         value={formData.subject}
                                         onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                                         placeholder="Pertanyaan proyek, kolaborasi, dll."
                                     />
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
+                                    <label htmlFor="message" className="block text-sm sm:text-base font-semibold text-gray-700 dark:text-gray-300 mb-1.5 sm:mb-2">
                                         Pesan <span className="text-red-500">*</span>
                                     </label>
                                     <textarea
@@ -284,7 +284,7 @@ export default function Contact() {
                                         disabled={isSubmitting}
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 resize-none placeholder:text-gray-400 dark:placeholder:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                                        className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-base border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white transition-colors duration-150 hover:border-blue-400 dark:hover:border-blue-500 resize-none placeholder:text-gray-400 dark:placeholder:text-gray-500 disabled:opacity-50 disabled:cursor-not-allowed"
                                         placeholder="Ceritakan tentang proyek Anda, persyaratan, linimasa, dan anggaran..."
                                     ></textarea>
                                 </div>
