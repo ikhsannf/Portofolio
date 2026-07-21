@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter, Poppins } from 'next/font/google'
+import { Kanit } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-const poppins = Poppins({
-  weight: ['400', '600', '700'],
+const kanit = Kanit({
   subsets: ['latin'],
-  variable: '--font-poppins'
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-kanit',
 })
 
 export const metadata: Metadata = {
@@ -20,10 +19,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`scroll-smooth max-w-full overflow-x-hidden ${poppins.variable}`}>
-      <body className={`${inter.className} max-w-full overflow-x-hidden`}>
-        {children}
-      </body>
+    <html lang="id" className={kanit.variable}>
+      <body>{children}</body>
     </html>
   )
 }
