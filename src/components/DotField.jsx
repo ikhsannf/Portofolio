@@ -107,11 +107,10 @@ const DotField = memo(({
       m.prevY = m.y;
     }
 
-    const speedInterval = setInterval(updateMouseSpeed, 20);
-
     let frameCount = 0;
 
     function tick() {
+      updateMouseSpeed();
       frameCount++;
       const dots = dotsRef.current;
       const m = mouseRef.current;
@@ -208,10 +207,46 @@ const DotField = memo(({
       rafRef.current = requestAnimationFrame(tick);
     }
 
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function start() {
+      if (!rafRef.current && !prefersReduced) rafRef.current = requestAnimationFrame(tick);
+    }
+    function stop() {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    }
+
     doResize();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
-    rafRef.current = requestAnimationFrame(tick);
+
+    // Reduced motion: paint a single static frame, never loop.
+    if (prefersReduced) {
+      tick();
+      stop();
+    }
+
+    // Only animate while the hero is on-screen and the tab is visible — otherwise
+    // the rAF loop keeps burning the main thread and janks the rest of the scroll.
+    let onScreen = false;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        onScreen = entry.isIntersecting;
+        if (onScreen && !document.hidden) start();
+        else stop();
+      },
+      { threshold: 0 }
+    );
+    if (canvas.parentElement) io.observe(canvas.parentElement);
+
+    const onVisibility = () => {
+      if (!document.hidden && onScreen) start();
+      else stop();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     rebuildRef.current = () => {
       const { w, h } = sizeRef.current;
@@ -219,9 +254,10 @@ const DotField = memo(({
     };
 
     return () => {
-      cancelAnimationFrame(rafRef.current);
-      clearInterval(speedInterval);
+      stop();
       clearTimeout(resizeTimer);
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', onMouseMove);
     };

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
 // Tech-stack logos — local assets where available, Simple Icons CDN for the
 // rest. Dark marks (Next.js) are forced white so they stay visible on ink.
@@ -44,20 +44,43 @@ function Tile({ src }: { src: string }) {
 
 export default function Marquee() {
   const sectionRef = useRef<HTMLElement>(null)
-  const [offset, setOffset] = useState(0)
+  const row1Ref = useRef<HTMLDivElement>(null)
+  const row2Ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current
-      if (!section) return
-      const sectionTop = section.offsetTop
-      const next = (window.scrollY - sectionTop + window.innerHeight) * 0.3
-      setOffset(next)
+    const section = sectionRef.current
+    if (!section) return
+
+    // Cache offsetTop (recomputed on resize) so the scroll handler never reads
+    // layout. Write transforms straight to the DOM in a rAF — no React
+    // re-render per scroll, and at most one update per frame.
+    let sectionTop = section.offsetTop
+    let ticking = false
+
+    const apply = () => {
+      ticking = false
+      const x = (window.scrollY - sectionTop + window.innerHeight) * 0.3 - 200
+      if (row1Ref.current) row1Ref.current.style.transform = `translate3d(${x}px,0,0)`
+      if (row2Ref.current) row2Ref.current.style.transform = `translate3d(${-x}px,0,0)`
+    }
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(apply)
+      }
+    }
+    const onResize = () => {
+      sectionTop = section.offsetTop
+      apply()
     }
 
-    handleScroll()
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
+    apply()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onResize)
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onResize)
+    }
   }, [])
 
   return (
@@ -76,26 +99,14 @@ export default function Marquee() {
 
       <div className="edge-fade flex flex-col gap-3">
         {/* Row 1 — moves RIGHT */}
-        <div
-          className="flex gap-3"
-          style={{
-            transform: `translateX(${offset - 200}px)`,
-            willChange: 'transform',
-          }}
-        >
+        <div ref={row1Ref} className="flex gap-3" style={{ willChange: 'transform' }}>
           {ROW_ONE.map((src, i) => (
             <Tile key={`r1-${i}`} src={src} />
           ))}
         </div>
 
         {/* Row 2 — moves LEFT */}
-        <div
-          className="flex gap-3"
-          style={{
-            transform: `translateX(${-(offset - 200)}px)`,
-            willChange: 'transform',
-          }}
-        >
+        <div ref={row2Ref} className="flex gap-3" style={{ willChange: 'transform' }}>
           {ROW_TWO.map((src, i) => (
             <Tile key={`r2-${i}`} src={src} />
           ))}

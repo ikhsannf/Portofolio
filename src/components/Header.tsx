@@ -20,20 +20,29 @@ export default function Header() {
 
   useEffect(() => {
     const els = LIGHT_SECTIONS.map((id) => document.getElementById(id))
-    const update = () => {
+    let ticking = false
+    const compute = () => {
+      ticking = false
       const over = els.some((el) => {
         if (!el) return false
         const r = el.getBoundingClientRect()
         return r.top <= HEADER_LINE && r.bottom >= HEADER_LINE
       })
-      setOnPaper(over)
+      setOnPaper(over) // React bails out when unchanged, so this only re-renders on a flip
     }
-    update()
-    window.addEventListener('scroll', update, { passive: true })
-    window.addEventListener('resize', update)
+    // Throttle to one layout read per frame instead of one per scroll event.
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true
+        requestAnimationFrame(compute)
+      }
+    }
+    compute()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
     return () => {
-      window.removeEventListener('scroll', update)
-      window.removeEventListener('resize', update)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
     }
   }, [])
 

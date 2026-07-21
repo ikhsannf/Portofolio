@@ -14,16 +14,17 @@ type AnimatedTextProps = {
   style?: React.CSSProperties
 }
 
-type CharProps = {
-  char: string
+type WordProps = {
+  word: string
   progress: MotionValue<number>
   range: [number, number]
 }
 
-function Char({ char, progress, range }: CharProps) {
+function Word({ word, progress, range }: WordProps) {
   const opacity = useTransform(progress, range, [0.15, 1])
-  // Single span per character — opacity driven by scroll progress.
-  return <motion.span style={{ opacity }}>{char}</motion.span>
+  // One scroll-linked value per word (not per character) — same reveal effect,
+  // ~7x fewer subscriptions updating while the section scrolls through view.
+  return <motion.span style={{ opacity }}>{word}</motion.span>
 }
 
 export default function AnimatedText({
@@ -37,24 +38,18 @@ export default function AnimatedText({
     offset: ['start 0.8', 'end 0.2'],
   })
 
-  const chars = text.split('')
+  const words = text.split(' ')
 
   return (
     <p ref={ref} className={className} style={style}>
-      {chars.map((char, i) => {
-        // Render spaces as real text nodes (not spans) so the line can wrap
-        // normally — otherwise the whole paragraph stays on one line and
-        // overflows to the right instead of centering.
-        if (char === ' ') return <Fragment key={i}> </Fragment>
-        const start = i / chars.length
-        const end = start + 1 / chars.length
+      {words.map((word, i) => {
+        const start = i / words.length
+        const end = start + 1 / words.length
         return (
-          <Char
-            key={i}
-            char={char}
-            progress={scrollYProgress}
-            range={[start, end]}
-          />
+          <Fragment key={i}>
+            <Word word={word} progress={scrollYProgress} range={[start, end]} />
+            {i < words.length - 1 ? ' ' : ''}
+          </Fragment>
         )
       })}
     </p>
