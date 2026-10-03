@@ -24,11 +24,10 @@ const FEATURED: Project[] = [
     number: '01',
     name: 'SisaDuit',
     type: 'Fullstack Web App',
-    status: 'Live',
+    status: 'Arsip',
     description:
       'Aplikasi pelacak keuangan pribadi berbasis AI yang membantu pencatatan & analisis transaksi secara otomatis menggunakan AI Consultant berbasis LLM.',
     tags: ['Next.js', 'AI / LLM', 'Fullstack'],
-    link: { href: 'https://sisaduit.my.id', label: 'Live Project' },
   },
   {
     number: '02',

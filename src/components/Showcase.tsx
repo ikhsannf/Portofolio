@@ -20,11 +20,10 @@ const PROJECTS: ShowProject[] = [
   {
     name: 'SisaDuit',
     type: 'Fullstack Web App',
-    status: 'Live',
+    status: 'Arsip',
     description:
       'Pelacak keuangan pribadi berbasis AI — pencatatan & analisis transaksi otomatis lewat AI Consultant berbasis LLM.',
     tags: ['Next.js', 'AI / LLM', 'Fullstack'],
-    link: { href: 'https://sisaduit.my.id', label: 'Live' },
   },
   {
     name: 'KIAR',
@@ -51,22 +50,6 @@ const PROJECTS: ShowProject[] = [
     description:
       'Aplikasi penyewaan perlengkapan hobi — proyek tim yang masih dalam pengembangan aktif.',
     tags: ['Web', 'Team', 'Rental'],
-  },
-  {
-    name: 'movInfo',
-    type: 'Web Application',
-    status: 'In Dev',
-    description:
-      'Website informasi film: rating, ulasan, dan berita terkini seputar dunia perfilman.',
-    tags: ['Web', 'API', 'Movies'],
-  },
-  {
-    name: 'TaskFlow',
-    type: 'Web Application',
-    status: 'In Dev',
-    description:
-      'Aplikasi manajemen tugas (to-do list) dengan antarmuka bersih dan intuitif untuk mengorganisir pekerjaan harian.',
-    tags: ['Web', 'Productivity'],
   },
   {
     name: 'Snippex',
