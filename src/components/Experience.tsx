@@ -59,6 +59,15 @@ const TIMELINE: TimelineItem[] = [
       'Berhasil menyelesaikan program NetDevelopment 2025 yang diselenggarakan oleh Adaptive Network Lab, memperdalam pemahaman tentang pengembangan jaringan dan teknologi terkait.',
     certificateUrl: '/certificate/MUH. IKHSAN FAHMI.pdf',
   },
+  {
+    number: '06',
+    year: '2026 — Sekarang',
+    typeLabel: 'Magang',
+    title: 'Full-stack Developer Intern',
+    organization: 'PT Parakarsa Kokreasi Semesta',
+    description:
+      'Mengembangkan OKESTA Engine, platform ERP internal — REST API dengan NestJS & Prisma serta antarmuka dengan React & Vite dalam monorepo Turborepo. Bekerja remote bersama product owner dan tech lead, termasuk menyusun dokumen PRD & SRS.',
+  },
 ]
 
 export default function Experience() {
@@ -70,7 +79,7 @@ export default function Experience() {
       <div className="flex items-center justify-center gap-3 mb-6">
         <span className="size-1.5 rounded-full bg-accent" />
         <span className="text-paper-ink/50 text-xs sm:text-sm font-medium uppercase tracking-[0.3em]">
-          Pendidikan, organisasi &amp; pencapaian
+          Pendidikan, magang, organisasi &amp; pencapaian
         </span>
       </div>
 

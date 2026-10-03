@@ -18,6 +18,15 @@ type ShowProject = {
 
 const PROJECTS: ShowProject[] = [
   {
+    name: 'JustGame',
+    type: 'Fullstack Web App',
+    status: 'Live',
+    description:
+      'Party game multiplayer real-time — room, sinkronisasi state langsung, mode Trivia & Undercover, serta leveling pemain.',
+    tags: ['Next.js', 'Supabase', 'Realtime'],
+    link: { href: 'https://game.justsann.online', label: 'Live' },
+  },
+  {
     name: 'SisaDuit',
     type: 'Fullstack Web App',
     status: 'Arsip',

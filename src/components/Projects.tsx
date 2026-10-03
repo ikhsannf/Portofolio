@@ -22,6 +22,16 @@ type Project = {
 const FEATURED: Project[] = [
   {
     number: '01',
+    name: 'JustGame',
+    type: 'Fullstack Web App',
+    status: 'Live',
+    description:
+      'Hub party game multiplayer real-time — buat atau gabung room, state permainan tersinkron langsung, mode Trivia dan Undercover, plus sistem level dan skor pemain.',
+    tags: ['Next.js', 'Supabase', 'Realtime'],
+    link: { href: 'https://game.justsann.online', label: 'Live Project' },
+  },
+  {
+    number: '02',
     name: 'SisaDuit',
     type: 'Fullstack Web App',
     status: 'Arsip',
@@ -30,7 +40,7 @@ const FEATURED: Project[] = [
     tags: ['Next.js', 'AI / LLM', 'Fullstack'],
   },
   {
-    number: '02',
+    number: '03',
     name: 'KIAR',
     type: 'Web Application',
     status: 'Live',
@@ -40,7 +50,7 @@ const FEATURED: Project[] = [
     link: { href: 'https://dikiar.vercel.app/', label: 'Live Project' },
   },
   {
-    number: '03',
+    number: '04',
     name: 'Dyslexi-Read',
     type: 'Browser Extension',
     status: 'In Dev',

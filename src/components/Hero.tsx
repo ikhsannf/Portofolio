@@ -59,8 +59,8 @@ export default function Hero() {
             className="text-mist font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[280px]"
             style={{ fontSize: 'clamp(0.75rem, 1.4vw, 1.5rem)' }}
           >
-            Frontend developer — merealisasikan ide menjadi produk digital yang
-            fungsional dan intuitif
+            Full-stack developer — merealisasikan ide menjadi produk web &amp; AI
+            yang fungsional dan intuitif
           </p>
         </FadeIn>
 

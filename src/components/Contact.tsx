@@ -226,7 +226,7 @@ export default function Contact() {
       {/* Bottom bar */}
       <div className="max-w-6xl mx-auto mt-20 sm:mt-28 pt-8 border-t border-mist/10 flex flex-col sm:flex-row gap-6 sm:gap-4 items-start sm:items-center justify-between">
         <span className="text-mist/40 text-xs sm:text-sm uppercase tracking-widest">
-          © 2026 Muh. Ikhsan Fahmi — Frontend Developer
+          © 2026 Muh. Ikhsan Fahmi — Full-stack Developer
         </span>
 
         <span className="text-mist/40 text-xs sm:text-sm uppercase tracking-widest">
