@@ -4,8 +4,6 @@ import { useEffect, useId, useRef, memo } from 'react';
 
 import './DotField.css';
 
-const TWO_PI = Math.PI * 2;
-
 const DotField = memo(({
   dotRadius = 1.5,
   dotSpacing = 14,
@@ -42,7 +40,10 @@ const DotField = memo(({
     if (!canvas) return;
     const ctx = canvas.getContext('2d', { alpha: true });
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let resizeTimer;
+    let onScreen = false;
+    let idleFrames = 0;
 
     function resize() {
       clearTimeout(resizeTimer);
@@ -68,6 +69,8 @@ const DotField = memo(({
       };
 
       buildDots(w, h);
+      // Resizing clears the canvas; repaint even if the loop went idle.
+      if (prefersReduced) { tick(); stop(); } else if (onScreen) start();
     }
 
     function buildDots(w, h) {
@@ -94,6 +97,7 @@ const DotField = memo(({
       const s = sizeRef.current;
       mouseRef.current.x = e.pageX - s.offsetX;
       mouseRef.current.y = e.pageY - s.offsetY;
+      if (onScreen && !document.hidden) start();
     }
 
     function updateMouseSpeed() {
@@ -187,30 +191,25 @@ const DotField = memo(({
           drawX += Math.cos(d.ay * 0.03 + t * 0.7) * p.waveAmplitude * 0.5;
         }
 
-        if (p.sparkle) {
-          const hash = ((i * 2654435761) ^ (frameCount >> 3)) >>> 0;
-          if ((hash % 100) < 3) {
-            ctx.moveTo(drawX + rad * 1.8, drawY);
-            ctx.arc(drawX, drawY, rad * 1.8, 0, TWO_PI);
-          } else {
-            ctx.moveTo(drawX + rad, drawY);
-            ctx.arc(drawX, drawY, rad, 0, TWO_PI);
-          }
-        } else {
-          ctx.moveTo(drawX + rad, drawY);
-          ctx.arc(drawX, drawY, rad, 0, TWO_PI);
-        }
+        // Squares, not arcs: at ~1.5px they look identical, and thousands of
+        // arc subpaths per frame were the single most expensive thing on the page.
+        const r = p.sparkle && ((((i * 2654435761) ^ (frameCount >> 3)) >>> 0) % 100) < 3 ? rad * 1.8 : rad;
+        ctx.rect(drawX - r, drawY - r, r * 2, r * 2);
       }
 
       ctx.fill();
 
-      rafRef.current = requestAnimationFrame(tick);
+      // Once the cursor rests and the dots settle every frame is identical —
+      // stop redrawing until the next mousemove restarts the loop.
+      idleFrames = eng === 0 && !p.sparkle && !p.waveAmplitude ? idleFrames + 1 : 0;
+      rafRef.current = idleFrames < 60 ? requestAnimationFrame(tick) : null;
     }
 
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
     function start() {
-      if (!rafRef.current && !prefersReduced) rafRef.current = requestAnimationFrame(tick);
+      if (!rafRef.current && !prefersReduced) {
+        idleFrames = 0;
+        rafRef.current = requestAnimationFrame(tick);
+      }
     }
     function stop() {
       if (rafRef.current) {
@@ -219,19 +218,13 @@ const DotField = memo(({
       }
     }
 
+    // Reduced motion: doResize paints a single static frame and never loops.
     doResize();
     window.addEventListener('resize', resize);
     window.addEventListener('mousemove', onMouseMove, { passive: true });
 
-    // Reduced motion: paint a single static frame, never loop.
-    if (prefersReduced) {
-      tick();
-      stop();
-    }
-
     // Only animate while the hero is on-screen and the tab is visible — otherwise
     // the rAF loop keeps burning the main thread and janks the rest of the scroll.
-    let onScreen = false;
     const io = new IntersectionObserver(
       ([entry]) => {
         onScreen = entry.isIntersecting;

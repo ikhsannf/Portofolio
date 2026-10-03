@@ -4,7 +4,7 @@ import './globals.css'
 
 const kanit = Kanit({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '900'], // only weights used (light, normal, medium, black)
   variable: '--font-kanit',
 })
 
